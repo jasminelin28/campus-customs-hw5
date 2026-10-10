@@ -15,3 +15,6 @@ dist/
 # Editor and OS
 .DS_Store
 Thumbs.db
+
+# Local editor/launch config (machine-specific paths)
+.claude/
