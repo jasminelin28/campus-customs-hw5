@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Campus Customs — Resolved Board</title>
+<style>
+  :root {
+    --ink: #2f3a45; --ink_soft: #76838f; --paper: #fcfbf9; --card: #ffffff;
+    --line: #e8e4dc; --green_tint: #e2f0e6; --green_edge: #8fc0a1; --green_ink: #3f7a56;
+    --blue_tint: #e3edfb; --blue_edge: #8aafdc; --blue_ink: #2f5d94;
+    --yellow_tint: #fbf1d9; --yellow_edge: #ddbe76; --yellow_ink: #8a6a22;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; padding: 36px 24px 72px; background: var(--paper); color: var(--ink);
+    font-family: "Segoe UI", system-ui, -apple-system, sans-serif; line-height: 1.6;
+  }
+  .wrap { max-width: 1000px; margin: 0 auto; }
+  h1 { font-size: 30px; margin: 0 0 4px; letter-spacing: -0.3px; }
+  .sub { color: var(--ink_soft); font-size: 14px; }
+  .summary {
+    display: flex; flex-wrap: wrap; gap: 12px; margin: 22px 0 36px;
+  }
+  .stat {
+    background: var(--card); border: 1px solid var(--line); border-radius: 12px;
+    padding: 12px 20px; min-width: 150px;
+  }
+  .stat_label {
+    font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--ink_soft);
+  }
+  .stat_value { font-size: 22px; font-variant-numeric: tabular-nums; }
+  .stat.cash { background: var(--green_tint); border-color: var(--green_edge); }
+  figure {
+    margin: 0 0 44px; background: var(--card); border: 1px solid var(--line);
+    border-radius: 16px; overflow: hidden;
+  }
+  figcaption { padding: 18px 24px 4px; }
+  figcaption h2 { margin: 0 0 4px; font-size: 20px; }
+  .pill {
+    display: inline-block; font-size: 11px; letter-spacing: 0.08em;
+    text-transform: uppercase; padding: 3px 11px; border-radius: 999px;
+    background: var(--green_tint); border: 1px solid var(--green_edge);
+    color: var(--green_ink); vertical-align: 2px; margin-left: 8px;
+  }
+  .outcome { color: var(--ink_soft); font-size: 14px; margin: 6px 0 0; }
+  .money {
+    margin: 12px 24px 18px; padding: 10px 16px; border-radius: 10px;
+    background: var(--yellow_tint); border: 1px solid var(--yellow_edge);
+    font-size: 13.5px; color: var(--yellow_ink);
+  }
+  .money.none { background: var(--blue_tint); border-color: var(--blue_edge); color: var(--blue_ink); }
+  img { display: block; width: 100%; border-top: 1px solid var(--line); }
+  footer {
+    margin-top: 40px; padding-top: 18px; border-top: 1px solid var(--line);
+    font-size: 12.5px; color: var(--ink_soft); text-align: center;
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<h1>Campus Customs — Resolved Board</h1>
+<div class="sub">
+  Screenshots of the React dashboard after the full run of 2026-10-09.
+  Shop date 2026-08-31. Every agent ran <code>gpt-6-luna</code> through Portkey.
+</div>
+
+<div class="summary">
+  <div class="stat"><div class="stat_label">tickets</div><div class="stat_value">3 of 3 resolved</div></div>
+  <div class="stat"><div class="stat_label">starting cash</div><div class="stat_value">$3,400.00</div></div>
+  <div class="stat cash"><div class="stat_label">ending cash</div><div class="stat_value">$152.00</div></div>
+  <div class="stat"><div class="stat_label">paid out</div><div class="stat_value">$3,248.00</div></div>
+  <div class="stat"><div class="stat_label">human approvals</div><div class="stat_value">3 paid, 1 cancelled</div></div>
+</div>
+
+<figure>
+  <figcaption>
+    <h2>The whole board <span class="pill">all resolved</span></h2>
+    <p class="outcome">
+      All three tickets closed, checking down to $152.00 from $3,400.00, with the
+      customer drafts still sitting unsent on the board.
+    </p>
+  </figcaption>
+  <img src="screenshots/board_all_resolved.jpg" alt="The Campus Customs board with all three tickets resolved">
+</figure>
+
+<figure>
+  <figcaption>
+    <h2>Ticket 101 — Bulldog tee <span class="pill">resolved</span></h2>
+    <p class="outcome">
+      Size S was at qty 0 and Bulldog Print Co would not ship because of their own
+      unpaid invoice 501. The invoice was cleared with human approval, a one-unit
+      restock was ordered, and Tauhid Zaman was drafted an honest update. Stock
+      arrives 2026-09-05.
+    </p>
+  </figcaption>
+  <div class="money">
+    Cash: −$840.00 (invoice 501, approved by Jasmine Lin) and −$8.00 (purchase
+    order 1, one tee at $8.00 cost). Total −$848.00.
+  </div>
+  <img src="screenshots/ticket_101_resolved.jpg" alt="Ticket 101 resolved, showing the four agent lanes">
+</figure>
+
+<figure>
+  <figcaption>
+    <h2>Ticket 102 — Rent due <span class="pill">resolved</span></h2>
+    <p class="outcome">
+      Facilities verified the notice against lease 1 before any money was prepared:
+      $2,400.00, Chapel Street shop, Elm City Properties. Accounting raised it for
+      approval and never paid it itself. After payment the lease's next due date
+      rolled forward to 2026-10-02.
+    </p>
+  </figcaption>
+  <div class="money">Cash: −$2,400.00 (rent on lease 1, approved by Jasmine Lin).</div>
+  <img src="screenshots/ticket_102_resolved.jpg" alt="Ticket 102 resolved, showing the Boss, Facilities and Accounting lanes">
+</figure>
+
+<figure>
+  <figcaption>
+    <h2>Ticket 103 — Bulk hoodie discount <span class="pill">resolved</span></h2>
+    <p class="outcome">
+      Only 8 size-M hoodies existed against a request for 20. A 10% discount was
+      agreed from real margin ($22.00 cost against $58.00 list, break-even at 62.1%
+      off), and the 12-unit restock was drafted at $264.00 — more than the $152.00
+      left after rent. The payment tool refused it, the desk cancelled it, and the
+      Yale AI Club was drafted an offer for the 8 available at $52.20 each.
+    </p>
+  </figcaption>
+  <div class="money none">
+    Cash: no change. The $264.00 restock was approved by a person but the pay tool
+    refused it — paying would have left −$112.00 — so it was cancelled.
+  </div>
+  <img src="screenshots/ticket_103_resolved.jpg" alt="Ticket 103 resolved, showing the blocked restock note in the Accounting lane">
+</figure>
+
+<footer>
+  $3,400.00 − $840.00 − $8.00 − $2,400.00 = $152.00, matching
+  <code>cash_accounts</code> in <code>data/campus_customs_new.db</code>.
+</footer>
+
+</div>
+</body>
+</html>

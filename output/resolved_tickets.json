@@ -1,0 +1,392 @@
+{
+  "run_date": "2026-10-09",
+  "shop_date": "2026-08-31",
+  "model": "gpt-6-luna via Portkey",
+  "starting_balance": 3400.0,
+  "ending_balance": 152.0,
+  "total_paid": 3248.0,
+  "tickets": [
+    {
+      "id": 101,
+      "final_status": "resolved",
+      "outcome": "Resolved. The tee was out of stock in size S and the only apparel vendor would not ship because of their own unpaid invoice. The invoice was cleared with human approval, a one-unit restock was ordered, and the customer was drafted an honest update. Stock arrives 2026-09-05.",
+      "boss_decision": "Resolved the customer order: purchase order 1 for one CC-TEE-WHITE tee in size S is ordered, and customer draft 7 is saved for review. The estimated arrival is September 5, 2026; the message has not been sent.",
+      "runs_needed": 7,
+      "agents_consulted": [
+        "inventory",
+        "accounting",
+        "customer_service"
+      ],
+      "agent_contributions": {
+        "boss": "Read ticket 101, established the shop date, and delegated to Inventory, Accounting and Customer Service on every pass. Drafted the restock purchase order once the vendor was clear, and closed the ticket as resolved with the arrival date in the note.",
+        "inventory": "Found CC-TEE-WHITE size S at qty 0 against a request for 1 (shortfall 1), identified Bulldog Print Co (vendor 1, apparel reprint, 5 day lead) as the only source, and reported can_ship false while invoice 501 was unpaid. After payment it confirmed the vendor could ship with arrival 2026-09-05.",
+        "accounting": "Found invoice 501 open, $840.00, 3 days overdue, owed to the same vendor blocking the restock. Confirmed $3,400.00 would cover it and raised approval request 1 for a human. Made no payment.",
+        "customer_service": "Drafted updates to Tauhid Zaman across the passes, saying the size S tee was out of stock and a reprint was being arranged, without promising a delivery date until the order was actually placed. All drafts stayed on the board unsent.",
+        "facilities": "Not involved. The shop space has nothing to do with a tee order."
+      },
+      "delegations": {
+        "boss -> inventory": 7,
+        "boss -> accounting": 7,
+        "boss -> customer_service": 7,
+        "customer_service -> inventory": 1
+      },
+      "tools_used_by_agent": {
+        "inventory": [
+          "check_stock_for_order",
+          "get_desk_date",
+          "get_invoice",
+          "get_ticket",
+          "get_vendor_status",
+          "list_purchase_orders",
+          "list_stock_for_sku",
+          "list_vendors"
+        ],
+        "accounting": [
+          "get_cash_balance",
+          "get_desk_date",
+          "get_invoice",
+          "get_ticket",
+          "list_approvals",
+          "list_payments",
+          "list_purchase_orders",
+          "request_payment_approval"
+        ],
+        "customer_service": [
+          "check_stock_for_order",
+          "get_desk_date",
+          "get_invoice",
+          "get_ticket",
+          "get_vendor_status",
+          "list_approvals",
+          "list_drafts",
+          "list_purchase_orders",
+          "save_customer_draft"
+        ],
+        "boss": [
+          "check_stock_for_order",
+          "draft_purchase_order",
+          "get_desk_date",
+          "get_invoice",
+          "get_ticket",
+          "get_vendor_status",
+          "list_approvals",
+          "list_drafts",
+          "list_purchase_orders",
+          "update_ticket_status"
+        ]
+      },
+      "human_approvals": [
+        {
+          "id": 1,
+          "kind": "invoice",
+          "amount": 840.0,
+          "status": "paid",
+          "decided_by": "Jasmine Lin",
+          "decided_at": "2026-08-31",
+          "decision_note": "Clear the overdue invoice so Bulldog Print Co will ship."
+        },
+        {
+          "id": 2,
+          "kind": "purchase_order",
+          "amount": 8.0,
+          "status": "paid",
+          "decided_by": "Jasmine Lin",
+          "decided_at": "2026-08-31",
+          "decision_note": "Restock the size S tee."
+        }
+      ],
+      "payments_made": [
+        {
+          "id": 1,
+          "kind": "invoice",
+          "ref_id": 501,
+          "amount": 840.0,
+          "paid_at": "2026-08-31",
+          "approved_by": "Jasmine Lin"
+        },
+        {
+          "id": 2,
+          "kind": "purchase_order",
+          "ref_id": 1,
+          "amount": 8.0,
+          "paid_at": "2026-08-31",
+          "approved_by": "Jasmine Lin"
+        }
+      ],
+      "purchase_orders": [
+        {
+          "id": 1,
+          "ticket_id": 101,
+          "vendor_id": 1,
+          "sku": "CC-TEE-WHITE",
+          "size": "S",
+          "qty": 1,
+          "unit_cost": 8.0,
+          "total_cost": 8.0,
+          "expected_arrival": "2026-09-05",
+          "status": "ordered",
+          "approval_id": 2,
+          "created_at": "2026-08-31"
+        }
+      ],
+      "drafts_saved": [
+        {
+          "id": 1,
+          "ticket_id": 101,
+          "audience": "Tauhid Zaman",
+          "subject": "Update on your Bulldog tee",
+          "status": "draft"
+        },
+        {
+          "id": 2,
+          "ticket_id": 101,
+          "audience": "Tauhid Zaman",
+          "subject": "Update on your Bulldog tee",
+          "status": "draft"
+        },
+        {
+          "id": 3,
+          "ticket_id": 101,
+          "audience": "Tauhid Zaman",
+          "subject": "Update on your Bulldog tee",
+          "status": "draft"
+        },
+        {
+          "id": 4,
+          "ticket_id": 101,
+          "audience": "Tauhid Zaman",
+          "subject": "Update on your Bulldog tee",
+          "status": "draft"
+        },
+        {
+          "id": 5,
+          "ticket_id": 101,
+          "audience": "Tauhid Zaman",
+          "subject": "Update on your Bulldog tee",
+          "status": "draft"
+        },
+        {
+          "id": 6,
+          "ticket_id": 101,
+          "audience": "Tauhid Zaman",
+          "subject": "Update on your Bulldog tee",
+          "status": "draft"
+        },
+        {
+          "id": 7,
+          "ticket_id": 101,
+          "audience": "Tauhid Zaman",
+          "subject": "Update on your Bulldog tee",
+          "status": "draft"
+        }
+      ]
+    },
+    {
+      "id": 102,
+      "final_status": "resolved",
+      "outcome": "Resolved. The rent notice was verified against lease 1 and paid with human approval. The lease's next due date rolled forward to 2026-10-02.",
+      "boss_decision": "Resolved the rent notice: the $2,400 rent was already paid on August 31, 2026, and the lease shows the next rent is due October 2, 2026\u2014not September 2 as the notice claims.",
+      "runs_needed": 3,
+      "agents_consulted": [
+        "facilities",
+        "accounting"
+      ],
+      "agent_contributions": {
+        "boss": "Read ticket 102, delegated to Facilities and Accounting, and closed it once the rent was paid and the lease showed the next due date had rolled forward.",
+        "facilities": "Verified the rent notice against lease 1: Chapel Street shop, Elm City Properties, $2,400.00, originally due 2026-09-02, two days from the shop date. Confirmed the notice was genuine before any money was prepared.",
+        "accounting": "Checked the balance, raised approval request 3 for $2,400.00 against lease 1, and made no payment. On the closing pass it confirmed the payment had been made and that $152.00 remained.",
+        "inventory": "Not involved. No product is attached to a rent notice.",
+        "customer_service": "Not involved. The landlord is not a customer and no message was needed."
+      },
+      "delegations": {
+        "boss -> facilities": 3,
+        "boss -> accounting": 3
+      },
+      "tools_used_by_agent": {
+        "facilities": [
+          "get_desk_date",
+          "get_lease",
+          "get_ticket"
+        ],
+        "accounting": [
+          "get_cash_balance",
+          "get_desk_date",
+          "get_lease",
+          "get_ticket",
+          "list_approvals",
+          "list_payments",
+          "request_payment_approval"
+        ],
+        "boss": [
+          "get_desk_date",
+          "get_ticket",
+          "update_ticket_status"
+        ]
+      },
+      "human_approvals": [
+        {
+          "id": 3,
+          "kind": "rent",
+          "amount": 2400.0,
+          "status": "paid",
+          "decided_by": "Jasmine Lin",
+          "decided_at": "2026-08-31",
+          "decision_note": "Rent verified against lease 1."
+        }
+      ],
+      "payments_made": [
+        {
+          "id": 3,
+          "kind": "rent",
+          "ref_id": 1,
+          "amount": 2400.0,
+          "paid_at": "2026-08-31",
+          "approved_by": "Jasmine Lin"
+        }
+      ],
+      "purchase_orders": [],
+      "drafts_saved": []
+    },
+    {
+      "id": 103,
+      "final_status": "resolved",
+      "outcome": "Resolved. A 10% discount was agreed on the 8 size-M hoodies in stock; the 12-unit restock was drafted but could not be funded from the $152.00 remaining, so it was cancelled by the desk and the customer was told the balance will be quoted when cash allows.",
+      "boss_decision": "Resolved the request on the basis recorded by the desk: offer Yale AI Club the 8 CC-HOOD-NAVY medium hoodies currently in stock at 10% off; the remaining 12 will be quoted when funds allow.",
+      "runs_needed": 5,
+      "agents_consulted": [
+        "customer_service"
+      ],
+      "agent_contributions": {
+        "boss": "Read ticket 103 and delegated to Accounting, Inventory and Customer Service. Held the ticket open while the restock was unfunded, then closed it on the desk's recorded decision to supply the 8 hoodies in stock at 10% off.",
+        "inventory": "Found 8 CC-HOOD-NAVY size M against a request for 20 (shortfall 12), checked the other sizes, and drafted purchase order 2 for the missing 12 units at $264.00 for human approval.",
+        "accounting": "Priced the discount from real margin: $22.00 cost against $58.00 list, break-even at 62.1% off. Recommended 10%, which leaves $27.40 margin per unit. Reported that $152.00 could not cover the $264.00 restock after rent.",
+        "customer_service": "Drafted the reply to the Yale AI Club offering 10% off the 8 hoodies available ($52.20 each) and explaining the remaining 12 would be quoted when funds allow. Not sent.",
+        "facilities": "Not involved."
+      },
+      "delegations": {
+        "boss -> accounting": 6,
+        "boss -> inventory": 4,
+        "boss -> customer_service": 4
+      },
+      "tools_used_by_agent": {
+        "accounting": [
+          "check_stock_for_order",
+          "get_cash_balance",
+          "get_desk_date",
+          "get_pricing",
+          "get_ticket",
+          "list_approvals",
+          "list_payments",
+          "list_purchase_orders",
+          "list_tickets",
+          "quote_discount"
+        ],
+        "inventory": [
+          "check_stock_for_order",
+          "draft_purchase_order",
+          "get_cash_balance",
+          "get_desk_date",
+          "get_invoice",
+          "get_ticket",
+          "get_vendor_status",
+          "list_approvals",
+          "list_purchase_orders",
+          "list_stock_for_sku",
+          "list_vendors"
+        ],
+        "customer_service": [
+          "check_stock_for_order",
+          "get_cash_balance",
+          "get_desk_date",
+          "get_pricing",
+          "get_ticket",
+          "get_vendor_status",
+          "list_approvals",
+          "list_drafts",
+          "list_purchase_orders",
+          "quote_discount",
+          "save_customer_draft"
+        ],
+        "boss": [
+          "check_stock_for_order",
+          "get_cash_balance",
+          "get_desk_date",
+          "get_ticket",
+          "get_vendor_status",
+          "list_approvals",
+          "list_drafts",
+          "list_purchase_orders",
+          "quote_discount",
+          "update_ticket_status"
+        ]
+      },
+      "human_approvals": [
+        {
+          "id": 4,
+          "kind": "purchase_order",
+          "amount": 264.0,
+          "status": "cancelled",
+          "decided_by": "Jasmine Lin",
+          "decided_at": "2026-08-31",
+          "decision_note": "Only $152 on hand; the $264 restock is deferred until cash recovers."
+        }
+      ],
+      "payments_made": [],
+      "purchase_orders": [
+        {
+          "id": 2,
+          "ticket_id": 103,
+          "vendor_id": 1,
+          "sku": "CC-HOOD-NAVY",
+          "size": "M",
+          "qty": 12,
+          "unit_cost": 22.0,
+          "total_cost": 264.0,
+          "expected_arrival": "2026-09-05",
+          "status": "cancelled",
+          "approval_id": 4,
+          "created_at": "2026-08-31"
+        }
+      ],
+      "drafts_saved": [
+        {
+          "id": 8,
+          "ticket_id": 103,
+          "audience": "Yale AI Club",
+          "subject": "Your bulk hoodie offer",
+          "status": "draft"
+        },
+        {
+          "id": 9,
+          "ticket_id": 103,
+          "audience": "Yale AI Club",
+          "subject": "Your bulk hoodie offer",
+          "status": "draft"
+        },
+        {
+          "id": 10,
+          "ticket_id": 103,
+          "audience": "Yale AI Club",
+          "subject": "Update on your navy hoodie order",
+          "status": "draft"
+        },
+        {
+          "id": 11,
+          "ticket_id": 103,
+          "audience": "Yale AI Club",
+          "subject": "Revised offer for CC-HOOD-NAVY hoodies",
+          "status": "draft"
+        }
+      ]
+    }
+  ],
+  "cash_reconciliation": {
+    "starting_balance": 3400.0,
+    "invoice_501_paid": -840.0,
+    "purchase_order_1_paid": -8.0,
+    "rent_lease_1_paid": -2400.0,
+    "purchase_order_2_refused_then_cancelled": 0.0,
+    "ending_balance": 152.0,
+    "check": "3400.00 - 840.00 - 8.00 - 2400.00 = 152.00, which matches cash_accounts.balance"
+  }
+}

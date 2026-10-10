@@ -1,0 +1,100 @@
+{
+  "server_name": "campus_customs",
+  "connection_file": ".mcp.json",
+  "transport": "stdio",
+  "database": "data/campus_customs_new.db",
+  "shop_date_today": "2026-08-31",
+  "tested_on": "2026-10-09",
+  "tools_listed_by_server": [
+    "check_stock_for_order",
+    "get_lease",
+    "get_pricing"
+  ],
+  "tests": [
+    {
+      "prompt": "Ticket 101 asks for one CC-TEE-WHITE in size S. Use the campus_customs MCP server to check whether we can fill that from stock, and tell me how many units short we are.",
+      "tool": "check_stock_for_order",
+      "arguments": {
+        "sku": "CC-TEE-WHITE",
+        "size": "S",
+        "qty_requested": 1
+      },
+      "output": {
+        "found": true,
+        "sku": "CC-TEE-WHITE",
+        "name": "Classic Bulldog Tee",
+        "size": "S",
+        "qty_on_hand": 0,
+        "qty_requested": 1,
+        "can_fill": false,
+        "shortfall": 1,
+        "location": "Aisle B"
+      },
+      "verified_against_database": {
+        "query": "SELECT qty, location, name FROM inventory WHERE sku='CC-TEE-WHITE' AND size='S'",
+        "row": {
+          "qty": 0,
+          "location": "Aisle B",
+          "name": "Classic Bulldog Tee"
+        },
+        "matches": true
+      }
+    },
+    {
+      "prompt": "Ticket 102 is an email from Elm City Properties saying rent is due. Use the MCP server to pull lease 1 and tell me the real amount and how many days until it is due, based on the shop's own date.",
+      "tool": "get_lease",
+      "arguments": {
+        "lease_id": 1
+      },
+      "output": {
+        "found": true,
+        "lease_id": 1,
+        "space_name": "Chapel Street shop",
+        "landlord": "Elm City Properties",
+        "monthly_rent": 2400.0,
+        "next_due": "2026-09-02",
+        "notes": null,
+        "date_today": "2026-08-31",
+        "days_until_due": 2,
+        "is_overdue": false
+      },
+      "verified_against_database": {
+        "query": "SELECT monthly_rent, next_due, landlord, space_name FROM leases WHERE id=1; SELECT date_today FROM desk",
+        "row": {
+          "monthly_rent": 2400.0,
+          "next_due": "2026-09-02",
+          "landlord": "Elm City Properties",
+          "space_name": "Chapel Street shop",
+          "date_today": "2026-08-31"
+        },
+        "matches": true,
+        "note": "days_until_due = 2 is computed from desk.date_today (2026-08-31) to next_due (2026-09-02), not from the real calendar date."
+      }
+    },
+    {
+      "prompt": "Ticket 103 is the Yale AI Club asking for a bulk discount on CC-HOOD-NAVY hoodies. Use the MCP server to get the cost and list price so I know how much margin we have to give away.",
+      "tool": "get_pricing",
+      "arguments": {
+        "sku": "CC-HOOD-NAVY"
+      },
+      "output": {
+        "found": true,
+        "sku": "CC-HOOD-NAVY",
+        "unit_cost": 22.0,
+        "list_price": 58.0,
+        "margin_per_unit": 36.0,
+        "margin_percent": 62.1
+      },
+      "verified_against_database": {
+        "query": "SELECT unit_cost, list_price FROM pricing WHERE sku='CC-HOOD-NAVY'",
+        "row": {
+          "unit_cost": 22.0,
+          "list_price": 58.0
+        },
+        "matches": true,
+        "note": "margin_per_unit and margin_percent are computed from the two stored values, not stored themselves."
+      }
+    }
+  ],
+  "result": "All three tools were called over the MCP stdio protocol. The server completed the MCP handshake and listed exactly the three expected tools. Every value returned matches the corresponding row in data/campus_customs_new.db."
+}

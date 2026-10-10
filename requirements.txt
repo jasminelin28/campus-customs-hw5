@@ -1,0 +1,11 @@
+# Campus Customs multi-agent operations
+# Install into a virtual environment inside this project folder:
+#   python -m venv .venv
+#   .venv/Scripts/python.exe -m pip install -r requirements.txt
+
+fastmcp==4.1.0
+pydantic-ai==2.55.0
+fastapi==0.143.0
+uvicorn[standard]==0.54.0
+python-dotenv==1.2.4
+portkey-ai==2.3.4
